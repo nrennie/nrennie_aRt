@@ -65,6 +65,23 @@ ui <- fluidPage(
                                          "Black" = "black"))
                   ),
 
+                  #bubbles
+                  tabPanel("Bubbles", id="bubbles",
+                           br(),
+                           numericInput("bubbles_n", "Number of circles", value = 7, min = 1, max = 30),
+                           selectInput("bubbles_palette", "Colour palette",
+                                       c("Bold" = "Bold",
+                                         "Antique" = "Antique",
+                                         "Vivid" = "Vivid",
+                                         "Safe"="Safe",
+                                         "Prism"="Prism",
+                                         "Pastel"="Pastel")),
+                           selectInput("bubbles_main_col", "Line colour",
+                                       unique(gsub('[0-9]+', '', colors()))),
+                           selectInput("bubbles_bg_col", "Background colour",
+                                       rev(unique(gsub('[0-9]+', '', colors()))))
+                  ),
+
                   #fading
                   tabPanel("Fading", id="fading",
                            br(),
@@ -74,20 +91,38 @@ ui <- fluidPage(
                                        c("Sunset" = "Sunset",
                                          "Dark Sunset" = "SunsetDark",
                                          "Teal" = "Teal",
-                                         "Peach"="Peach"))
+                                         "Peach" = "Peach",
+                                         "Teal Green" = "TealGrn",
+                                         "Red Orange" = "RedOr",
+                                         "Purple Orange" = "PurpOr",
+                                         "Purple" = "Purp",
+                                         "Orange Yellow" = "OrYel",
+                                         "Mint" = "Mint",
+                                         "Dark Mint" = "DarkMint",
+                                         "Magenta" = "Magenta",
+                                         "Emerald" = "Emrld",
+                                         "Burgundy" = "Burg"))
+                  ),
+
+                  #bubbles
+                  tabPanel("Fractals", id="fractals",
+                           br(),
+                           numericInput("fractals_n", "Number of iterations", value = 25, min = 5, max = 30),
+                           selectInput("fractals_palette", "Colour palette",
+                                       names(MetBrewer::MetPalettes)),
+                           numericInput("fractals_y", "Growth rate", value = 3, min = 1, max = 5),
+                           sliderInput("fractals_left", "Left limit", min = -3, max = 0, value = -1, step = 0.1),
+                           sliderInput("fractals_right", "Right limit", min = 0, max = 3, value = 1, step = 0.1),
+                           numericInput("fractals_dist", "Maximum distance", value = 4, min = 2, max = 10)
                   ),
 
                   #bullseye
                   tabPanel("Bullseye", id="bullseye",
                            br(),
                            selectInput("bullseye_main_col", "Main colour",
-                                       c("Black" = "black",
-                                         "White" = "white",
-                                         "Red" = "#9E1A1A")),
+                                       rev(unique(gsub('[0-9]+', '', colors())))),
                            selectInput("bullseye_bg_col", "Background colour",
-                                       c("White" = "white",
-                                         "Black" = "black",
-                                         "Grey" = "grey80"))
+                                       unique(gsub('[0-9]+', '', colors())))
                   ),
 
                   #vortex
@@ -101,9 +136,7 @@ ui <- fluidPage(
                                        c("Rainbow" = "rainbow",
                                          "Monochrome" = "mono")),
                            selectInput("vortex_bg_col", "Background colour",
-                                       c("Black" = "black",
-                                         "White" = "white",
-                                         "Yellow" = "#edad08"))
+                                       unique(gsub('[0-9]+', '', colors())))
                   ),
 
                   #waves
@@ -119,9 +152,7 @@ ui <- fluidPage(
                                          "Safe"="Safe",
                                          "Pastel"="Pastel")),
                            selectInput("waves_bg_col", "Background colour",
-                                       c("White" = "white",
-                                         "Black" = "black",
-                                         "Yellow" = "#edad08"))
+                                       unique(gsub('[0-9]+', '', colors())))
                   )
             ),
       width = 8
