@@ -9,6 +9,7 @@ server <- function(input, output, session) {
   vortexServer("vortex")
   wavesServer("waves")
   fadingServer("fading")
+  linesServer("lines")
 
   # Source code link
   url <- a("GitHub", href="https://github.com/nrennie/aRt")

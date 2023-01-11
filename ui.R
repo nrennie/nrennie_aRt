@@ -21,6 +21,7 @@ ui <- fluidPage(
 
   # Tab panels ----
   tabsetPanel(type = "tabs", id = "tabs",
+              linesUI("lines"),
               circlesUI("circles"),
               bubblesUI("bubbles"),
               bullseyeUI("bullseye"),
