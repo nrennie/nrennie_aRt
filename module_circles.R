@@ -43,12 +43,6 @@ circlesServer <- function(id) {
         paste(cdata[[cnames[pos]]])
       })
 
-      output$clientdataText <- renderText({
-        cnames <- names(cdata)
-        pos <- grep("Plot_width$", cnames)[1]
-        paste(cdata[[cnames[pos]]])
-      })
-
       plotInput <- reactive({
           circles(n=input$circles_n,
                   smoothness=input$circles_smoothness,

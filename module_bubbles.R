@@ -42,12 +42,6 @@ bubblesServer <- function(id) {
         paste(cdata[[cnames[pos]]])
       })
 
-      output$clientdataText <- renderText({
-        cnames <- names(cdata)
-        pos <- grep("Plot_width$", cnames)[1]
-        paste(cdata[[cnames[pos]]])
-      })
-
       plotInput <- reactive({
         suppressWarnings(bubbles(num_circles = input$bubbles_n,
                                  main_col = input$bubbles_main_col,
