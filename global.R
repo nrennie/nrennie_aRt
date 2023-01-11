@@ -8,6 +8,7 @@ suppressPackageStartupMessages({
   library(dplyr)
   library(deldir)
   library(ggplot2)
+  library(waiter)
 })
 
 source("module_circles.R")
