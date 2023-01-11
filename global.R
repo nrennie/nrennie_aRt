@@ -9,3 +9,6 @@ suppressPackageStartupMessages({
   library(deldir)
   library(ggplot2)
 })
+
+source("module_circles.R")
+source("module_bubbles.R")
