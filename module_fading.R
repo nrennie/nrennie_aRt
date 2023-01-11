@@ -5,11 +5,8 @@ fadingUI <- function(id) {
              br(),
              column(4,
                     align="center",
-                    wellPanel(
-                      plotOutput(ns("fadingPlot"), height = "auto"),
-                      br(),
-                      downloadButton(ns('downloadPlot'), 'Download')
-                    )
+                    plotOutput(ns("fadingPlot"), height = "auto"),
+                    br()
              ), # end first column
              column(8,
                     sliderInput(ns("fading_n_layers"), "Number of layers", min = 2, max = 10, value = 6),
@@ -28,7 +25,9 @@ fadingUI <- function(id) {
                                   "Dark Mint" = "DarkMint",
                                   "Magenta" = "Magenta",
                                   "Emerald" = "Emrld",
-                                  "Burgundy" = "Burg"))
+                                  "Burgundy" = "Burg")),
+                    tags$h5("Click below to download a PNG file:"),
+                    downloadButton(ns('downloadPlot'), 'Download')
              ) # end second column
            ) # end fluid row
   ) # end tab panel

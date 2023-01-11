@@ -5,11 +5,8 @@ fractalsUI <- function(id) {
              br(),
              column(4,
                     align="center",
-                    wellPanel(
-                      plotOutput(ns("fractalsPlot"), height = "auto"),
-                      br(),
-                      downloadButton(ns('downloadPlot'), 'Download')
-                    )
+                    plotOutput(ns("fractalsPlot"), height = "auto"),
+                    br()
              ), # end first column
              column(8,
                     numericInput(ns("fractals_n"), "Number of iterations", value = 25, min = 5, max = 30),
@@ -17,7 +14,9 @@ fractalsUI <- function(id) {
                     numericInput(ns("fractals_y"), "Growth rate", value = 3, min = 1, max = 5),
                     sliderInput(ns("fractals_left"), "Left limit", min = -3, max = 0, value = -1, step = 0.1),
                     sliderInput(ns("fractals_right"), "Right limit", min = 0, max = 3, value = 1, step = 0.1),
-                    numericInput(ns("fractals_dist"), "Maximum distance", value = 4, min = 2, max = 10)
+                    numericInput(ns("fractals_dist"), "Maximum distance", value = 4, min = 2, max = 10),
+                    tags$h5("Click below to download a PNG file:"),
+                    downloadButton(ns('downloadPlot'), 'Download')
              ) # end second column
            ) # end fluid row
   ) # end tab panel

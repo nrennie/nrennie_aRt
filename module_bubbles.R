@@ -5,11 +5,8 @@ bubblesUI <- function(id) {
              br(),
              column(4,
                     align="center",
-                    wellPanel(
-                      plotOutput(ns("bubblesPlot"), height = "auto"),
-                      br(),
-                      downloadButton(ns('downloadPlot'), 'Download')
-                    )
+                    plotOutput(ns("bubblesPlot"), height = "auto"),
+                    br()
              ), # end first column
              column(8,
                    numericInput(ns("bubbles_n"), "Number of circles", value = 7, min = 1, max = 30),
@@ -23,7 +20,9 @@ bubblesUI <- function(id) {
                    selectInput(ns("bubbles_main_col"), "Line colour",
                                unique(gsub('[0-9]+', '', colors()))),
                    selectInput(ns("bubbles_bg_col"), "Background colour",
-                               rev(unique(gsub('[0-9]+', '', colors()))))
+                               rev(unique(gsub('[0-9]+', '', colors())))),
+                   tags$h5("Click below to download a PNG file:"),
+                   downloadButton(ns('downloadPlot'), 'Download')
              ) # end second column
            ) # end fluid row
   ) # end tab panel

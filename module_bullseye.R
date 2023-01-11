@@ -5,11 +5,8 @@ bullseyeUI <- function(id) {
              br(),
              column(4,
                     align="center",
-                    wellPanel(
-                      plotOutput(ns("bullseyePlot"), height = "auto"),
-                      br(),
-                      downloadButton(ns('downloadPlot'), 'Download')
-                    )
+                    plotOutput(ns("bullseyePlot"), height = "auto"),
+                    br()
              ), # end first column
              column(8,
                     tabPanel("Bullseye", id="bullseye",
@@ -17,7 +14,9 @@ bullseyeUI <- function(id) {
                              selectInput(ns("bullseye_main_col"), "Main colour",
                                          rev(unique(gsub('[0-9]+', '', colors())))),
                              selectInput(ns("bullseye_bg_col"), "Background colour",
-                                         unique(gsub('[0-9]+', '', colors())))
+                                         unique(gsub('[0-9]+', '', colors()))),
+                             tags$h5("Click below to download a PNG file:"),
+                             downloadButton(ns('downloadPlot'), 'Download')
                     ),
              ) # end second column
            ) # end fluid row

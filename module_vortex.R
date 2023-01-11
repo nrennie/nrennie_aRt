@@ -5,22 +5,20 @@ vortexUI <- function(id) {
              br(),
              column(4,
                     align="center",
-                    wellPanel(
-                      plotOutput(ns("vortexPlot"), height = "auto"),
-                      br(),
-                      downloadButton(ns('downloadPlot'), 'Download')
-                    )
+                    plotOutput(ns("vortexPlot"), height = "auto"),
+                    br()
              ), # end first column
              column(8,
                     sliderInput(ns("vortex_n"), "Number of points", min = 1, max = 100, value = 25),
                     selectInput(ns("vortex_start_val"), "Starting value",
-                                c("0" = 0,
-                                  "90" = 90)),
+                                c("0" = 0, "90" = 90)),
                     selectInput(ns("vortex_col_scheme"), "Colour scheme",
                                 c("Rainbow" = "rainbow",
                                   "Monochrome" = "mono")),
                     selectInput(ns("vortex_bg_col"), "Background colour",
-                                unique(gsub('[0-9]+', '', colors())))
+                                unique(gsub('[0-9]+', '', colors()))),
+                    tags$h5("Click below to download a PNG file:"),
+                    downloadButton(ns('downloadPlot'), 'Download')
              ) # end second column
            ) # end fluid row
   ) # end tab panel

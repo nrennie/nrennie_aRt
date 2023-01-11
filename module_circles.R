@@ -5,11 +5,8 @@ circlesUI <- function(id) {
              br(),
              column(4,
                     align="center",
-                    wellPanel(
-                      plotOutput(ns("circlesPlot"), height = "auto"),
-                      br(),
-                      downloadButton(ns('downloadPlot'), 'Download')
-                    )
+                    plotOutput(ns("circlesPlot"), height = "auto"),
+                    br()
              ), # end first column
              column(8,
                     numericInput(ns("circles_n"), "Number of circles", value = 10, min = 1, max = 100),
@@ -24,7 +21,9 @@ circlesUI <- function(id) {
                     selectInput(ns("circles_bg_col"), "Background colour",
                                c("Pink" = "#e73f74",
                                  "White" = "white",
-                                 "Black" = "black"))
+                                 "Black" = "black")),
+                    tags$h5("Click below to download a PNG file:"),
+                    downloadButton(ns('downloadPlot'), 'Download')
                     ) # end second column
     ) # end fluid row
   ) # end tab panel
