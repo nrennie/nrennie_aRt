@@ -18,7 +18,7 @@ server <- function(input, output, session) {
 
   # Footer
   output$footer <- renderText({
-    "© Nicola Rennie. 2022."
+    "© Nicola Rennie. 2023."
   })
 
 }

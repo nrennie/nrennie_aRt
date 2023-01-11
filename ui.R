@@ -13,6 +13,10 @@ ui <- fluidPage(
     windowTitle = "aRt: Generative Art in R"
   ),
 
+  # Footer ----
+  fluidRow(column(12, align="center", uiOutput("gh_link"))),
+  fluidRow(column(12, align="center", textOutput("footer"))),
+
   hr(),
 
   # Tab panels ----
@@ -26,9 +30,4 @@ ui <- fluidPage(
               fadingUI("fading")
   ),
 
-  hr(),
-
-  # Footer ----
-  fluidRow(column(12, align="center", uiOutput("gh_link"))),
-  fluidRow(column(12, align="center", textOutput("footer")))
 )
