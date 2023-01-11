@@ -12,7 +12,8 @@ ui <- fluidPage(
 
   tabsetPanel(type = "tabs", id = "tabs",
               circlesUI("circles"),
-              bubblesUI("bubbles")
+              bubblesUI("bubbles"),
+              bullseyeUI("bullseye")
   ),
 
   #                 #fading
@@ -47,15 +48,6 @@ ui <- fluidPage(
   #                          sliderInput("fractals_left", "Left limit", min = -3, max = 0, value = -1, step = 0.1),
   #                          sliderInput("fractals_right", "Right limit", min = 0, max = 3, value = 1, step = 0.1),
   #                          numericInput("fractals_dist", "Maximum distance", value = 4, min = 2, max = 10)
-  #                 ),
-  #
-  #                 #bullseye
-  #                 tabPanel("Bullseye", id="bullseye",
-  #                          br(),
-  #                          selectInput("bullseye_main_col", "Main colour",
-  #                                      rev(unique(gsub('[0-9]+', '', colors())))),
-  #                          selectInput("bullseye_bg_col", "Background colour",
-  #                                      unique(gsub('[0-9]+', '', colors())))
   #                 ),
   #
   #                 #vortex

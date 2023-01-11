@@ -27,15 +27,6 @@ server <- function(input, output, session) {
   #                                   plot.margin = unit(c(0, -0.1, -0.7, -0.1), unit = "cm")))
   #   }
   #
-  #   else if (input$tabs == "Bullseye"){
-  #     p <- suppressWarnings(bullseye(main_col = input$bullseye_main_col,
-  #                                    bg_col = input$bullseye_bg_col,
-  #                                    s = 1234) +
-  #                             labs(caption = "N. Rennie") +
-  #                             theme(plot.caption = element_text(colour=c("black", "white")[(input$bullseye_bg_col == "black") + 1],
-  #                                                               size=10, hjust = 0.5, vjust = 15, face="italic")))
-  #   }
-  #
   #   else if (input$tabs == "Vortex"){
   #     p1 <- vortex(n=input$vortex_n, start_val=as.numeric(input$vortex_start_val),
   #                 col_scheme=input$vortex_col_scheme, bg_col=input$vortex_bg_col, s=1234) +
@@ -66,6 +57,7 @@ server <- function(input, output, session) {
   # Call modules
   circlesServer("circles")
   bubblesServer("bubbles")
+  bullseyeServer("bullseye")
 
   # Source code link
   url <- a("GitHub", href="https://github.com/nrennie/aRt")

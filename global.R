@@ -12,3 +12,8 @@ suppressPackageStartupMessages({
 
 source("module_circles.R")
 source("module_bubbles.R")
+source("module_bullseye.R")
+source("module_fractals.R")
+source("module_fading.R")
+source("module_waves.R")
+source("module_vortex.R")
