@@ -31,4 +31,5 @@ ui <- fluidPage(
               fadingUI("fading")
   ),
 
+  br()
 )
